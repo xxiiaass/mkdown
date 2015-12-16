@@ -1,0 +1,60 @@
+    {
+        "title":"解析ip地址来源",
+        "tag":["ip", "nodejs", "server"]
+    }
+-------------------
+
+公司的网站分为英文、中文两种语言，现在的做法是默认中文，在web中提供按钮，由用户主动点击。
+
+现在打算改进为分析用户的ip地址，判断其来源地区，自动转换中英文。
+
+## 获取客户端ip地址　　
+
+在网上找到两个nodejs环境中，封装好的函数，解释不明确，实现细节有差异，在一般情况下都能正确获取到IP地址，应该在特殊条件下有差异，改天具体分析，现在先初步完成功能
+
+    function getClientIp(req) {
+        var ipAddress;
+        var forwardedIpsStr = req.header('x-forwarded-for'); 
+        if (forwardedIpsStr) {
+            var forwardedIps = forwardedIpsStr.split(',');
+            ipAddress = forwardedIps[0];
+        }
+        if (!ipAddress) {
+            ipAddress = req.connection.remoteAddress||req.socket.remoteAddress ||req.connection.socket.remoteAddress;
+        }
+        //::ffff:127.0.0.1
+        ipAddress = ipAddress.substr(ipAddress.lastIndexOf(':')+1);
+        return ipAddress;
+    }
+
+    function getClientIp(req) {
+        return req.headers['x-forwarded-for'] ||
+        req.connection.remoteAddress ||
+        req.socket.remoteAddress ||
+        req.connection.socket.remoteAddress;
+    };
+
+其中，`req.header('x-forwarded-for')`是获取代理服务器的ip。
+
+## 根据ip判断地区
+
+在网上找到一个ＩＰ地址数据库，属于数值IP,
+
+利用shell删除里面不属于中国的ip,然后判断是否为中国即可
+
+先把上面sting类型的ip转换为int类型的ip，
+
+    var strip_to_Intip = function(strIp){
+            var isString = istype('String');
+            if( isString(strIp) ){
+                    var ipArray = strIp.split('.');　//字符串会被.截断
+                    var intIp = 0;
+                    for (var i = 0; i < ipArray.length; i++) {
+                            intIp += parseInt(ipArray[i])*Math.pow(256, 3-i);
+                    };
+                    return intIp;
+            }else
+                    throw new Error('ip format err !');
+    }
+
+进入数据库查找就好了。
