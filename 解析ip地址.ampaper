@@ -38,6 +38,7 @@
 
 ## 根据ip判断地区
 
+<<<<<<< 996a894f1ad79f6eb32c437a698928fae1816463
 在网上找到一个ＩＰ地址数据库，属于数值IP,
 
 利用shell删除里面不属于中国的ip,然后判断是否为中国即可
@@ -58,3 +59,31 @@
     }
 
 进入数据库查找就好了。
+=======
+找到一个提供ip判断服务的[免费服务器](http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx),它还提供一些其他服务。
+
+发送这个http请求，即可获取信息
+
+    GET /WebServices/IpAddressSearchWebService.asmx/getCountryCityByIp?theIpAddress=string HTTP/1.1
+    Host: www.webxml.com.cn
+
+使用ip地址替换其中的string即可,会返回一段http回复，带着一些xml代码，地址信息就在里面
+
+我使用curl，带着一个ip地址去测试这个功能，实际命令和结果为：
+
+    curl www.webxml.com.cn//WebServices/IpAddressSearchWebService.asmx/getCountryCityByIp?theIpAddress=14.154.251.37
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://WebXml.com.cn/">
+      <string>14.154.251.37</string>
+      <string>广东省 电信</string>
+
+接下来只要截取字符串比较，就能知道地区了
+
+## 实现方式
+
+测试了一下，这个服务器速度不算快，也不慢，对于一般公司的业务来说，应该没问题。
+
+而且我们公司的首页加载是分步的，先加载图片布局,js代码等，最后加载文字。这样也就给了自己服务器向ip地址服务器获取信息的时间。
+
+>>>>>>> ok
