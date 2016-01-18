@@ -1,6 +1,5 @@
 # tcpdump抓包命令的使用
 
-
 ###　常用选项记录
 
 -X 详细打印网络包中的每一个字节
@@ -17,10 +16,12 @@ host, port, net　指定端口或主机
 
 ### 常用实例
 
+**ip协议头20字节，TCPx协议头在http应用中，32字节**
+
 * 抓取3003端口的所有tcp数据包
 `tcpdump tcp port 3003 -n -X -s 0 -i lo -S`
 
 * 抓取http网络包
-`tcpdump -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854`
-`tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'`
+`tcpdump -X -s 0 -i eth0 tcp port 00 and \(tcp[32:2]=0x4745 or tcp[32:2]=0x4854\)`
+
 

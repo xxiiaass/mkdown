@@ -49,6 +49,13 @@ ECMA6js具备这个功能的，数组、对象、set、map，string。
     Array.from({ length: 5 }, () => {i++;return Math.pow(j,i);});
     //[ 2, 4, 8, 16, 32 ]
 
+还可以用于将两个数组合并
+
+    let array1 = ['a', 'b'];
+    let array2 = ['c', 'd'];
+    let arr = Array.from([...array1, ...array2]);
+
+   
 
 #### Array.of()
 

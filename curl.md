@@ -27,3 +27,14 @@ Curl命令的使用
 实际测试结果，速度很慢，不知道什么原因，同样一个文件，wget速度快很多
 
     wget $URL
+
+### 使用cookie
+
+访问某个网站时，响应网站设置cookie的请求，保存cookie至指定文件
+    `curl -c ./cookies http://localshot:3003`
+
+访问某个资源时，携带某文件中的cookie信息
+    `curl -b ./cookies http://localshot:3003`
+
+访问某个资源时，携带指定的cookie信息
+    `curl -b "name=kevin;age=26" http://localshot:3003`
