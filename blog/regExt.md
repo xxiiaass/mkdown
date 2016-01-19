@@ -55,3 +55,15 @@ g:全局
 
 
 
+## shell
+
+### grep
+
+-B n 显示匹配行的前n行
+-A n 显示匹配行的后n行
+-o 只显示匹配的内容
+-v 反向匹配
+-n 显示行号
+
+--include=xx 递归时，只匹配和xx通配符符合的文件名
+--exclude=xx　与include相反
