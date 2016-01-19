@@ -33,7 +33,6 @@
 
 * 获取页面当前所处位置时，使用document.documentElement.scrollTop+document.body.scrollTop，才能兼容所有浏览器
 
-<<<<<<< HEAD
 ----
 # DATE 
 
@@ -55,7 +54,6 @@ September 1st Tuesday
 ## CONTENT
 
 * jq.keypress(func(e){})   listen keypress, e.keyCode is Ascll number;
-=======
 
 
 <!-- -------------------------------------------------------------------------------------- -->
@@ -132,22 +130,6 @@ September 1st Tuesday
 September 15th Tuesday
 
 # CONTENT
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> note/master
 
 
 
