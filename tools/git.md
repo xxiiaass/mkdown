@@ -36,3 +36,9 @@ git reset HEAD <<==>> git rm --cached fils
 简直了，刚刚不小心把一个正在开发的分支误删，以为要重写了，靠这个命令回退过去了。
 
 它能列出历史的commit，太牛了！！
+
+## init
+
+git --bare init
+
+初始化一个空的仓库

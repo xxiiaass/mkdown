@@ -67,3 +67,25 @@ g:全局
 
 --include=xx 递归时，只匹配和xx通配符符合的文件名
 --exclude=xx　与include相反
+
+
+
+
+
+
+
+
+### sed
+
+`sed '/0109/d' file`
+删除含有0109的行
+
+`sed '\:reg: s;xx;xx;' file`
+对含有reg的行进行替换操作，\后面的为定界符，默认为/，
+`sed '\:reg:!s;xx;xx;' file`
+对不喊又reg操作的行进行替换操作
+
+`sed '\dfunctiond,/}/ s;xx;xx;' file`
+d为定界符，对从'function'到'}'的行进行操作，并且若有多个目标符合条件，会同时作用
+
+-n　加入此选项之后，只有加了p操作的行才会被显示
