@@ -2,6 +2,12 @@
 
     sudo apt-get install nginx
     
+
+### 重启
+
+./nginx -s reload
+
+
 ### 添加配置文件
 
 配置文件夹在/etc/nginx/*
