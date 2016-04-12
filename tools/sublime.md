@@ -1,5 +1,10 @@
 # sublime 使用总结
 
+## 安装package control
+
+    import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+
+
 
 ## 快捷键（改为自己习惯的操作，配置文件在后面给出）
 
