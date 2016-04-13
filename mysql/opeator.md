@@ -38,6 +38,12 @@ mac安装
 
   show tables;
 
+显示数据库表的列表
+
+  desc TABLENAME;
+
+显示表字段的详细信息
+
   select columnName1 [otherName], columnName2 [otherName], ... from dataBaseName.tabelName where ... order by KEY  limit NUMBER
 
 columnName1为需要获取的列名，可以设置结果集的列别名， *为全部,根据order by 后面的key排序(升序)，再加一个desc则是降序，最大数量显示NUMBER个
@@ -61,6 +67,14 @@ left join 以TABLE_A为基准，显示全部a和on后面条件的TABLE_B
 right join 则与left join相反
 inner join 则止显示满足on后面条件的行
 
+### 创建索引
 
+在创建表的同时创建索引
+
+  create table NAME(id primary key, unique index index_id (id desc));
+
+在已有的表上创建索引
+
+  create unique index index_id on NAME(id);
 
 
