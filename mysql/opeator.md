@@ -38,9 +38,9 @@ mac安装
 
   show tables;
 
-  select columnName1,columnName2, ... from dataBaseName.tabelName where ... order by KEY  limit NUMBER
+  select columnName1 [otherName], columnName2 [otherName], ... from dataBaseName.tabelName where ... order by KEY  limit NUMBER
 
-columnName1为需要获取的列名，*为全部,根据order by 后面的key排序(升序)，再加一个desc则是降序，最大数量显示NUMBER个
+columnName1为需要获取的列名，可以设置结果集的列别名， *为全部,根据order by 后面的key排序(升序)，再加一个desc则是降序，最大数量显示NUMBER个
 
 ### 插入操作
 
