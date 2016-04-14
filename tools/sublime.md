@@ -48,3 +48,9 @@
         { "keys": ["ctrl+shift+o"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
         { "keys": ["ctrl+shift+p"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
     ]
+
+
+## 推荐插件
+
+
+mark preview 

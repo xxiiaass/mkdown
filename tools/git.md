@@ -42,3 +42,11 @@ git reset HEAD <<==>> git rm --cached fils
 git --bare init
 
 初始化一个空的仓库
+
+## git diff
+
+git diff --name-only ...
+
+只显示改变的文件名字
+
+
