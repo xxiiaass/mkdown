@@ -51,17 +51,13 @@ mac安装
 
     show tables;
 
-<<<<<<< HEAD
 显示数据库表的列表
 
   desc TABLENAME;
 
 显示表字段的详细信息
 
-  select columnName1 [otherName], columnName2 [otherName], ... from dataBaseName.tabelName where ... order by KEY  limit NUMBER
-=======
     select :columnName1 [otherName], :columnName2 [otherName], ... from :dataBaseName.tabelName where ... order by :KEY   limit [:BEGINNUM,]:SIZENUM
->>>>>>> remotes/hub/master
 
 columnName1为需要获取的列名，可以设置结果集的列别名， *为全部,根据order by 后面的key排序(升序)，再加一个desc则是降序，最大数量显示NUMBER个
 
@@ -79,6 +75,39 @@ columnName1为需要获取的列名，可以设置结果集的列别名， *为�
   
     select ... from ... where id [not] between 100 and 120;
 
+##### like
+
+通配符匹配查询
+
+    select ...  from ... where id [not] like '_%';
+
+`_` 代表单个任意字符
+`%` 代表任意数量的任意字符
+
+##### null
+
+空值查询
+
+    select ... from ... where id [not] is null;
+
+##### distinct
+
+重复消除
+
+    select distinct age from :tablename;
+
+此时将会显示age的所有取值
+
+    select distinct age, id from :tablename;
+
+此时将会以age为序, 显示所有集合
+
+##### group by
+
+分组查询
+
+    select * from testtable group by address;
+
 
 
 ##### 查看表详细信息
@@ -89,13 +118,6 @@ columnName1为需要获取的列名，可以设置结果集的列别名， *为�
 
     ... where :columnName [NOT] REGEXP '正则表达式'
 
-##### 通配查询
-
-    ... where :columnName [NOT] LIKE '%_'
-
-%代表任意数量的任意字符
-
-_代表任意字符
 
 ### 插入操作
 
@@ -119,7 +141,6 @@ right join 则与left join相反
 inner join 则止显示满足on后面条件的行
 
 ### 创建索引
-<<<<<<< HEAD
 
 在创建表的同时创建索引
 
@@ -128,7 +149,6 @@ inner join 则止显示满足on后面条件的行
 在已有的表上创建索引
 
   create unique index index_id on NAME(id);
-=======
 
     create table :TABLENAME(
       id int,
@@ -136,6 +156,6 @@ inner join 则止显示满足on后面条件的行
       age int,
       index :INDEXNAME (id [, age])
     )
->>>>>>> remotes/hub/master
+>>>>>>
 
 
