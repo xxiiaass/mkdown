@@ -156,7 +156,6 @@ inner join 则止显示满足on后面条件的行
       age int,
       index :INDEXNAME (id [, age])
     )
->>>>>>
 
 
 ### 集合函数查询
