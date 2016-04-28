@@ -67,9 +67,10 @@ file
 tail -f file可以持续监听某个文件的末尾
 
 ## od
-
     od -t x file
-将file以16进制显示
+
+    od -v -An -t x1 file
+将file以16进制显示m\
 
 
 ## strings

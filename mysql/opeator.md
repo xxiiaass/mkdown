@@ -159,3 +159,41 @@ inner join 则止显示满足on后面条件的行
 >>>>>>
 
 
+### 集合函数查询
+
+##### count()
+
++ 显示纪录数的总数
+
+    select count(*) from testtable;
+
++ 将某个字段的所有值归类,并显示数量
+
+    select age, count(*) from testtable group by age;
+
+##### sum()
+
+    select address, sum(age) from testtable group by address having sum(age)>=4000 order by sum(age);
+
+需要注意的是,having关键字必须出现在group by后面
+
+##### group_concat()
+
+这个函数可以显示出根据group by分组后的组内其他字段所有值, 所以必须和group by搭配使用;
+
+    select address,  group_concat(id) from testtable where id<3000 group by address;
+
+##### avg()平均值函数  max()最大值函数  min()最小值函数
+
+### 子查询
+
+可以使用关键字IN, ANY, ALL, EXISTS以及各种比较操作符(= , >, <, ...)
+
++ IN是用于有限集的集合
+
++ EXISTS是判断是否存在, 子查询中有行,返回true, 没有行,返回false, 根据返回值确定是否执行父查询语句
+
++ ANY, 需要与操作符一起使用, 如 >ANY( sql ), =ANY( sql ) ... ,sql中返回的结果只要有一个满足操作符的条件,那么该表达式的值就为真
+
++ ALL, 用法与ANY相同, 但是代表需要满足子集中的所有条件, 操作符结果才为真
+

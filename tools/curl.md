@@ -11,7 +11,7 @@ Curl命令的使用
 
 ### 向服务器提交数据  
 
-+ GET方法   
++ GET方法
     `curl "http://xxx.xx.xx.xx/xxx?name=xxx&age=xxx"`
 
 + POST方法   
