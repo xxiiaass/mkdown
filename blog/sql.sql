@@ -1,0 +1,1 @@
+select user_id from article_like_1 where article_id=1 and article_comment_id=0;

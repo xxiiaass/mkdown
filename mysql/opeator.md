@@ -14,6 +14,13 @@ mac安装
 
     set password for root@localhost=password('xxxxxxx');
 
+修改最大执行sql大小
+    
+    set global max_allowed_packet=1024*1024*16;
+
+查询字符集
+
+  show variables like '%char%';
 
 ### 创建删除操作
 
@@ -195,4 +202,8 @@ inner join 则止显示满足on后面条件的行
 + ANY, 需要与操作符一起使用, 如 >ANY( sql ), =ANY( sql ) ... ,sql中返回的结果只要有一个满足操作符的条件,那么该表达式的值就为真
 
 + ALL, 用法与ANY相同, 但是代表需要满足子集中的所有条件, 操作符结果才为真
+
+
+select r.autokid, r.product_name r.zw_user_code ,u.user_id, u.real_name, r.mobile, r.amount , r.annual_rate , r.bank_name , r.bank_acct , r.is_succeeded , r.ctime,
+ from qeeniao_zhiwang.zw_user_has_product r left join qeeniao_zhiwang.zw_user u on r.user_id=u.user_id order by r.ctime DESC limit :offset,:limit
 

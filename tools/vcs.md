@@ -6,7 +6,7 @@
 
 ## 代码智能提示
 
-    npm install tsd -g
-    tsd query -r -o -a install express
+    npm install typings --global
+    typings install node express --ambient --save
 
 每个项目需要单独生成提示的文件

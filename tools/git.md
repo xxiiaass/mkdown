@@ -33,9 +33,9 @@ git reset HEAD <<==>> git rm --cached fils
 
     git log -a
 
-简直了，刚刚不小心把一个正在开发的分支误删，以为要重写了，靠这个命令回退过去了。
+    git fsck --lost-found
 
-它能列出历史的commit，太牛了！！
+    git reflog 
 
 ## init
 
